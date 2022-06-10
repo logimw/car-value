@@ -29,11 +29,6 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
-  // @Get('/session')
-  // getSession(@Session() session: any) {
-  //   return this.usersService.findOne(session.userId);
-  // }
-
   @Get('/session')
   @UseGuards(AuthGuard)
   getSession(@CurrentUser() user: User) {
