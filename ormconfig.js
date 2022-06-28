@@ -9,8 +9,12 @@ const dbConfig = {
 switch (process.env.NODE_ENV) {
   case 'development':
     Object.assign(dbConfig, {
-      type: 'sqlite',
-      database: 'db.sqlite',
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: process.env.DB_USER,
+      password: process.env.DB_PWD,
+      database: 'car_value_dev',
       entities: ['**/*.entity.js'],
     });
     break;
